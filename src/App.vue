@@ -1,11 +1,14 @@
 <script setup></script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <header></header>
+
+  <main class="container mx-auto p-4">
+    <section class="text-center">
+         <h1 class="text-3xl font-bold">TP1 - Veille technologique</h1>
+         <h2 class="text-xl">Présenté par <em>Antoine Boudreau</em></h2>
+    </section>
+  </main>
 </template>
 
 <style scoped></style>
