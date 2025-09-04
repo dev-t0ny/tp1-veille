@@ -1,10 +1,15 @@
-<script setup></script>
+
+<script setup>
+
+</script>
 
 <template>
-  <header></header>
+  <header>
+
+  </header>
 
   <main class="container mx-auto p-4">
-    <section class="text-center">
+    <section class="text-center text-white">
          <h1 class="text-3xl font-bold">TP1 - Veille technologique</h1>
          <h2 class="text-xl">Présenté par <em>Antoine Boudreau</em></h2>
     </section>
