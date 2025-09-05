@@ -1,5 +1,6 @@
 @import "tailwindcss";
+@import 'primeicons/primeicons.css';
 
-* {
+body {
     background-color: #181A1B;
 }
