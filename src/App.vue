@@ -1,7 +1,3 @@
-<script setup>
-import FadeContent from "./components/FadeContent.vue";
-</script>
-
 <template>
   <header>
     <nav class="flex justify-center mx-auto gap-8 text-white p-4 mt-5 mb-8 w-1/5">

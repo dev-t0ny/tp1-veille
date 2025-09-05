@@ -5,8 +5,3 @@
 branche de dev --> main
 
 branche de prod --> gh-pages
-
-
-## sources
-
-[Librairies de composants](https://vue-bits.dev/)
