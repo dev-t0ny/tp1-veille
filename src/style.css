@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import 'primeicons/primeicons.css';
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #181A1B;
 }
