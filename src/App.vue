@@ -1,20 +1,29 @@
 <script setup>
 import SplitText from "./components/TextPopover.vue";
+import { ref } from "vue";
+
+const afficherDetails = ref(false);
 </script>
 
 <template>
-  <header>
+  <header id="accueil">
     <nav
       class="flex justify-center mx-auto gap-8 text-white p-4 mt-5 mb-8 w-1/4"
     >
       <ul>
-        <a href="#about" class="hover:underline">Accueil</a>
+        <a href="#accueil" class="hover:underline">Accueil</a>
+      </ul>
+        <ul>
+        <a href="#usage" class="hover:underline">Usage</a>
       </ul>
       <ul>
-        <a href="#projects" class="hover:underline">Détails de l'appareil</a>
+        <a href="#details" class="hover:underline">Détails</a>
       </ul>
       <ul>
-        <a href="#contact" class="hover:underline">Avis</a>
+        <a href="#experimentation" class="hover:underline">Expérimentations</a>
+      </ul>
+      <ul>
+        <a href="#avis" class="hover:underline">Avis</a>
       </ul>
     </nav>
   </header>
@@ -26,14 +35,14 @@ import SplitText from "./components/TextPopover.vue";
         Présenté par
         <em class="gradient-text"> Antoine Boudreau</em>
       </h2>
-      <a href="#contenu">
+      <a href="#usage">
         <i
           class="pi pi-arrow-down animate-bounce text-[#b0ff61] p-5 mt-75 text-3xl hover:cursor-pointer"
         ></i>
       </a>
     </section>
 
-    <section id="contenu" class="text-white text-center mb-[25rem] mt-[20rem]">
+    <section id="usage" class="text-white text-center mb-[25rem] mt-[20rem]">
       <SplitText
         text="L'appareil que j'ai choisi?"
         class-name="text-2xl font-semibold text-center"
@@ -48,18 +57,45 @@ import SplitText from "./components/TextPopover.vue";
         text-align="center"
         @animation-complete="handleAnimationComplete"
       />
-      <div
-        class="w-1/4 mx-auto mt-20 p-10 border-4 border-dashed border-gray-600 rounded-lg hover:bg-gray-800 hover:scale-110 transform transition duration-300 ease-in-out relative group"
-      >
-        <p class="group-hover:hidden">Survole moi!</p>
 
-        <div class="hidden group-hover:flex flex-col items-center">
-          <img
-            src="/img/sensor.png"
-            alt="Image de l'appareil"
-            class="mb-2 rounded"
-          />
-          <h2 class="text-xl">Détecteur de mouvement</h2>
+      <div class="flex justify-center items-center gap-12 mt-20">
+        <div
+          class="w-1/4 p-10 border-4 border-dashed border-gray-600 rounded-lg hover:bg-gray-800 hover:scale-110 transform transition duration-300 ease-in-out relative"
+          @mouseenter="afficherDetails = true"
+        >
+          <p v-if="!afficherDetails">Survole moi!</p>
+
+          <transition
+            enter-active-class="transition-opacity duration-700 ease-out"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+          >
+            <div v-if="afficherDetails" class="flex flex-col items-center">
+              <img
+                src="/img/sensor.png"
+                alt="Image de l'appareil"
+                class="mb-2 rounded"
+              />
+              <h2 class="text-xl">Détecteur de mouvement</h2>
+            </div>
+          </transition>
+        </div>
+
+        <div
+          class="text-left max-w-sm transition-all duration-500"
+          :class="
+            afficherDetails
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-4'
+          "
+          v-show="true"
+        >
+          <h3 class="text-lg font-semibold mb-2">Usage proposé</h3>
+          <ul class="list-disc pl-5 text-gray-300">
+            <li>
+              Calculer la vitesse d'une personne ou d'un objet en mouvement.
+            </li>
+          </ul>
         </div>
       </div>
     </section>
